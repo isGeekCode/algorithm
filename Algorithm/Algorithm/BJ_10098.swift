@@ -1,12 +1,11 @@
 //
-//  1000.swift
+//  BJ_10098.swift
 //  Algorithm
 //
-//  Created by bang_hyeonseok on 2022/08/04.
+//  Created by bang_hyeonseok on 2022/09/22.
 //
 
 import Foundation
-
 
 let line = readLine()!
 let lineArr = line.components(separatedBy: " ")
