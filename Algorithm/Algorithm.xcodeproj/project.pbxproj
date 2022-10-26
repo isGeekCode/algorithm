@@ -13,6 +13,7 @@
 		9622964A2908EE20009DE671 /* BJ_10098.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BF68FD28DBD699007D88C8 /* BJ_10098.swift */; };
 		9622964C2908F36A009DE671 /* BJ_1008.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622964B2908F36A009DE671 /* BJ_1008.swift */; };
 		9622964E2908FB19009DE671 /* BJ_10869.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622964D2908FB19009DE671 /* BJ_10869.swift */; };
+		962296502908FC89009DE671 /* BJ_10926.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622964F2908FC89009DE671 /* BJ_10926.swift */; };
 		96FEC2AD289B327100580B06 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FEC2A4289B310800580B06 /* Tutorial.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		962296472908E737009DE671 /* BJ_1001.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_1001.swift; sourceTree = "<group>"; };
 		9622964B2908F36A009DE671 /* BJ_1008.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_1008.swift; sourceTree = "<group>"; };
 		9622964D2908FB19009DE671 /* BJ_10869.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_10869.swift; sourceTree = "<group>"; };
+		9622964F2908FC89009DE671 /* BJ_10926.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_10926.swift; sourceTree = "<group>"; };
 		96BF68FB28DBD62A007D88C8 /* BJ_1000.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_1000.swift; sourceTree = "<group>"; };
 		96BF68FD28DBD699007D88C8 /* BJ_10098.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_10098.swift; sourceTree = "<group>"; };
 		96FEC2A1289B310800580B06 /* Algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +61,7 @@
 				96BF68FD28DBD699007D88C8 /* BJ_10098.swift */,
 				9622964B2908F36A009DE671 /* BJ_1008.swift */,
 				9622964D2908FB19009DE671 /* BJ_10869.swift */,
+				9622964F2908FC89009DE671 /* BJ_10926.swift */,
 			);
 			path = InputAndOperation;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				9622964E2908FB19009DE671 /* BJ_10869.swift in Sources */,
 				9622964A2908EE20009DE671 /* BJ_10098.swift in Sources */,
 				9622964C2908F36A009DE671 /* BJ_1008.swift in Sources */,
+				962296502908FC89009DE671 /* BJ_10926.swift in Sources */,
 				962296462908D131009DE671 /* ArrayInit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
