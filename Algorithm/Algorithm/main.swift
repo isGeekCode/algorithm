@@ -20,5 +20,9 @@ import Foundation
 //print(intArr[0]*intArr[1])
 
 // MARK: - lv.3
-var arr = readLine()!.split(separator: " ").map { Double($0)! }
-print(arr[0] / arr[1])
+//var arr = readLine()!.split(separator: " ").map { Int($0)! }
+//print(arr[0] + arr[1])
+//print(arr[0] - arr[1])
+//print(arr[0] * arr[1])
+//print(arr[0] / arr[1])
+//print(arr[0] % arr[1])
