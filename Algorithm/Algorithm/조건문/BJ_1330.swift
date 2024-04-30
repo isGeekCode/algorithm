@@ -49,12 +49,33 @@ import Foundation
  
  */
 
-let intArr = readLine()!.split(separator: " ").map{Int($0)!}
-let minus = intArr[0] - intArr[1]
-if minus > 0 {
-    print(">")
-} else if minus < 0 {
-    print("<")
-} else {
-    print("==")
-}
+
+// MARK: 내 답
+// 두 값의 차를 양수 음수로 구분
+
+//let intArr = readLine()!.split(separator: " ").map{Int($0)!}
+//let minus = intArr[0] - intArr[1]
+//if minus > 0 {
+//    print(">")
+//} else if minus < 0 {
+//    print("<")
+//} else {
+//    print("==")
+//}
+
+
+// MARK: 다른 인상적인 답
+// 아예 값 자체를 비교
+/*
+
+ 
+ let input = readLine()!.split(separator: " ").map { Int($0)! }
+
+ if input[0] > input[1] {
+     print(">")
+ } else if input[0] < input[1] {
+     print("<")
+ } else {
+     print("==")
+ }
+ */
