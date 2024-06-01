@@ -10,6 +10,10 @@
 		962296462908D131009DE671 /* ArrayInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962296452908D131009DE671 /* ArrayInit.swift */; };
 		963AD0D8296639ED000699EF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AD0D7296639ED000699EF /* main.swift */; };
 		96FEC2AD289B327100580B06 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FEC2A4289B310800580B06 /* Tutorial.swift */; };
+		9CD62A352C099BF9008502BE /* BJ_1926_BFS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62A342C099BF9008502BE /* BJ_1926_BFS.swift */; };
+		9CFAA40C2C07426100E24D25 /* BJ_2753.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFAA40B2C07426100E24D25 /* BJ_2753.swift */; };
+		9CFAA40E2C07463600E24D25 /* BJ_14681.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFAA40D2C07463600E24D25 /* BJ_14681.swift */; };
+		9CFAA4102C08CD4300E24D25 /* Prog_000.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFAA40F2C08CD4300E24D25 /* Prog_000.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,7 +45,11 @@
 		9C5481542BE0B61B009F1564 /* BJ_11382.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_11382.swift; sourceTree = "<group>"; };
 		9C5481552BE0B8CB009F1564 /* BJ_10171.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_10171.swift; sourceTree = "<group>"; };
 		9C5481562BE0BAAC009F1564 /* BJ_1330.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_1330.swift; sourceTree = "<group>"; };
+		9CD62A342C099BF9008502BE /* BJ_1926_BFS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_1926_BFS.swift; sourceTree = "<group>"; };
 		9CFAA3CB2C05EAD600E24D25 /* BJ_9498.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_9498.swift; sourceTree = "<group>"; };
+		9CFAA40B2C07426100E24D25 /* BJ_2753.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_2753.swift; sourceTree = "<group>"; };
+		9CFAA40D2C07463600E24D25 /* BJ_14681.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_14681.swift; sourceTree = "<group>"; };
+		9CFAA40F2C08CD4300E24D25 /* Prog_000.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prog_000.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +105,9 @@
 				962296452908D131009DE671 /* ArrayInit.swift */,
 				962296492908ED3C009DE671 /* BJ_LV1_입출력과 사칙연산 */,
 				9C5481592BE0BABC009F1564 /* BJ_LV2_조건문 */,
+				9CFAA4112C08CE0F00E24D25 /* Prog_LV0 */,
 				963AD0D7296639ED000699EF /* main.swift */,
+				9CD62A362C099BFC008502BE /* BFS */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -107,9 +117,27 @@
 			children = (
 				9C5481562BE0BAAC009F1564 /* BJ_1330.swift */,
 				9CFAA3CB2C05EAD600E24D25 /* BJ_9498.swift */,
+				9CFAA40B2C07426100E24D25 /* BJ_2753.swift */,
+				9CFAA40D2C07463600E24D25 /* BJ_14681.swift */,
 			);
 			name = "BJ_LV2_조건문";
 			path = "조건문";
+			sourceTree = "<group>";
+		};
+		9CD62A362C099BFC008502BE /* BFS */ = {
+			isa = PBXGroup;
+			children = (
+				9CD62A342C099BF9008502BE /* BJ_1926_BFS.swift */,
+			);
+			path = BFS;
+			sourceTree = "<group>";
+		};
+		9CFAA4112C08CE0F00E24D25 /* Prog_LV0 */ = {
+			isa = PBXGroup;
+			children = (
+				9CFAA40F2C08CD4300E24D25 /* Prog_000.swift */,
+			);
+			path = Prog_LV0;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,8 +198,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CFAA40C2C07426100E24D25 /* BJ_2753.swift in Sources */,
+				9CD62A352C099BF9008502BE /* BJ_1926_BFS.swift in Sources */,
 				96FEC2AD289B327100580B06 /* Tutorial.swift in Sources */,
+				9CFAA4102C08CD4300E24D25 /* Prog_000.swift in Sources */,
 				963AD0D8296639ED000699EF /* main.swift in Sources */,
+				9CFAA40E2C07463600E24D25 /* BJ_14681.swift in Sources */,
 				962296462908D131009DE671 /* ArrayInit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

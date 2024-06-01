@@ -36,28 +36,19 @@
 // */
 //
 //// MARK: 내 답
-//let input = Int(readLine()!)!
+//let num = Int(readLine()!)!
 //
-//struct CheckModel {
-//    let num: Int
-//    
-//    init(num: Int) {
-//        self.num = num
-//        check(num: self.num)
-//    }
-//    
-//    func check(num: Int) {
-//        if num >= 90 && num <= 100 {
-//            print("A")
-//        } else if num >= 80 && num <= 89 {
-//            print("B")
-//        } else if num >= 70 && num <= 79 {
-//            print("C")
-//        } else {
-//            print("D")
-//        }
-//    }
+//if num >= 90 && num <= 100 {
+//    print("A")
+//} else if num >= 80 && num <= 89 {
+//    print("B")
+//} else if num >= 70 && num <= 79 {
+//    print("C")
+//} else if num >= 60 && num <= 69 {
+//    print("D")
+//} else {
+//    print("F")
 //}
-//let model = CheckModel(num: input)
-//
+
 //// MARK: 다른 답 중 인상적인 답
+// 함수를 따로 구현하지 않는것이 더 빠르게 해결됨
