@@ -20,6 +20,10 @@
 		9CD62A492C10589E008502BE /* Prim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62A482C10589E008502BE /* Prim.swift */; };
 		9CD62A4C2C1058B3008502BE /* BJ_1197.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62A4B2C1058B3008502BE /* BJ_1197.swift */; };
 		9CD62A4E2C1076EA008502BE /* HeapTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62A4D2C1076EA008502BE /* HeapTemplate.swift */; };
+		9CD62A502C10DE1B008502BE /* Dijkstra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62A4F2C10DE1B008502BE /* Dijkstra.swift */; };
+		9CD62A522C10DE5C008502BE /* BJ_1753.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62A512C10DE5C008502BE /* BJ_1753.swift */; };
+		9CD62A542C1163FB008502BE /* FloydTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62A532C1163FB008502BE /* FloydTemplate.swift */; };
+		9CD62A562C1164EB008502BE /* BJ_11404.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62A552C1164EB008502BE /* BJ_11404.swift */; };
 		9CFAA40C2C07426100E24D25 /* BJ_2753.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFAA40B2C07426100E24D25 /* BJ_2753.swift */; };
 		9CFAA40E2C07463600E24D25 /* BJ_14681.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFAA40D2C07463600E24D25 /* BJ_14681.swift */; };
 		9CFAA4102C08CD4300E24D25 /* Prog_000.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFAA40F2C08CD4300E24D25 /* Prog_000.swift */; };
@@ -64,6 +68,10 @@
 		9CD62A482C10589E008502BE /* Prim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prim.swift; sourceTree = "<group>"; };
 		9CD62A4B2C1058B3008502BE /* BJ_1197.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_1197.swift; sourceTree = "<group>"; };
 		9CD62A4D2C1076EA008502BE /* HeapTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeapTemplate.swift; sourceTree = "<group>"; };
+		9CD62A4F2C10DE1B008502BE /* Dijkstra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dijkstra.swift; sourceTree = "<group>"; };
+		9CD62A512C10DE5C008502BE /* BJ_1753.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_1753.swift; sourceTree = "<group>"; };
+		9CD62A532C1163FB008502BE /* FloydTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloydTemplate.swift; sourceTree = "<group>"; };
+		9CD62A552C1164EB008502BE /* BJ_11404.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_11404.swift; sourceTree = "<group>"; };
 		9CFAA3CB2C05EAD600E24D25 /* BJ_9498.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_9498.swift; sourceTree = "<group>"; };
 		9CFAA40B2C07426100E24D25 /* BJ_2753.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_2753.swift; sourceTree = "<group>"; };
 		9CFAA40D2C07463600E24D25 /* BJ_14681.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_14681.swift; sourceTree = "<group>"; };
@@ -131,7 +139,8 @@
 				9CD62A412C0F7094008502BE /* BinarySearch */,
 				9CD62A442C0F8D5F008502BE /* Greedy */,
 				9CD62A472C103E08008502BE /* DP */,
-				9CD62A4A2C1058A1008502BE /* MST */,
+				9CD62A592C11651F008502BE /* UseHeap */,
+				9CD62A572C1164EF008502BE /* Floyd */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -202,9 +211,36 @@
 			children = (
 				9CD62A482C10589E008502BE /* Prim.swift */,
 				9CD62A4B2C1058B3008502BE /* BJ_1197.swift */,
-				9CD62A4D2C1076EA008502BE /* HeapTemplate.swift */,
 			);
 			path = MST;
+			sourceTree = "<group>";
+		};
+		9CD62A572C1164EF008502BE /* Floyd */ = {
+			isa = PBXGroup;
+			children = (
+				9CD62A532C1163FB008502BE /* FloydTemplate.swift */,
+				9CD62A552C1164EB008502BE /* BJ_11404.swift */,
+			);
+			path = Floyd;
+			sourceTree = "<group>";
+		};
+		9CD62A582C116503008502BE /* Dijkstra */ = {
+			isa = PBXGroup;
+			children = (
+				9CD62A4F2C10DE1B008502BE /* Dijkstra.swift */,
+				9CD62A512C10DE5C008502BE /* BJ_1753.swift */,
+			);
+			path = Dijkstra;
+			sourceTree = "<group>";
+		};
+		9CD62A592C11651F008502BE /* UseHeap */ = {
+			isa = PBXGroup;
+			children = (
+				9CD62A4D2C1076EA008502BE /* HeapTemplate.swift */,
+				9CD62A4A2C1058A1008502BE /* MST */,
+				9CD62A582C116503008502BE /* Dijkstra */,
+			);
+			path = UseHeap;
 			sourceTree = "<group>";
 		};
 		9CFAA4112C08CE0F00E24D25 /* Prog_LV0 */ = {
@@ -279,7 +315,9 @@
 				96FEC2AD289B327100580B06 /* Tutorial.swift in Sources */,
 				9CFAA4102C08CD4300E24D25 /* Prog_000.swift in Sources */,
 				9CD62A432C0F8D5B008502BE /* BJ_11047.swift in Sources */,
+				9CD62A542C1163FB008502BE /* FloydTemplate.swift in Sources */,
 				963AD0D8296639ED000699EF /* main.swift in Sources */,
+				9CD62A522C10DE5C008502BE /* BJ_1753.swift in Sources */,
 				9CD62A4E2C1076EA008502BE /* HeapTemplate.swift in Sources */,
 				9CD62A402C0F708F008502BE /* BJ_1920.swift in Sources */,
 				9CD62A3D2C0F58D9008502BE /* BJ_2559.swift in Sources */,
@@ -289,6 +327,8 @@
 				9CD62A4C2C1058B3008502BE /* BJ_1197.swift in Sources */,
 				9CD62A462C103E05008502BE /* BJ_11726.swift in Sources */,
 				962296462908D131009DE671 /* ArrayInit.swift in Sources */,
+				9CD62A562C1164EB008502BE /* BJ_11404.swift in Sources */,
+				9CD62A502C10DE1B008502BE /* Dijkstra.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

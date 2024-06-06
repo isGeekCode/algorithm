@@ -1,138 +1,155 @@
 //
-//  BJ_1197.swift
+//  BJ_11404.swift
 //  Algorithm
 //
-//  Created by 방현석 on 6/5/24.
+//  Created by 방현석 on 6/6/24.
 //
 
 import Foundation
-
-// MARK: 최소 스패닝 트리
+// MARK: 플로이드
 
 
 /**
  
  - 문제
- 그래프가 주어졌을 때, 그 그래프의 최소 스패닝 트리를 구하는 프로그램을 작성하시오.
+ n(2 ≤ n ≤ 100)개의 도시가 있다. 그리고 한 도시에서 출발하여 다른 도시에 도착하는 m(1 ≤ m ≤ 100,000)개의 버스가 있다. 각 버스는 한 번 사용할 때 필요한 비용이 있다.
 
- 최소 스패닝 트리는, 주어진 그래프의 모든 정점들을 연결하는 부분 그래프 중에서 그 가중치의 합이 최소인 트리를 말한다.
+ 모든 도시의 쌍 (A, B)에 대해서 도시 A에서 B로 가는데 필요한 비용의 최솟값을 구하는 프로그램을 작성하시오.
+
 
  
  - 입력
- 첫째 줄에 정점의 개수 V(1 ≤ V ≤ 10,000)와 간선의 개수 E(1 ≤ E ≤ 100,000)가 주어진다. 다음 E개의 줄에는 각 간선에 대한 정보를 나타내는 세 정수 A, B, C가 주어진다. 이는 A번 정점과 B번 정점이 가중치 C인 간선으로 연결되어 있다는 의미이다. C는 음수일 수도 있으며, 절댓값이 1,000,000을 넘지 않는다.
+ 첫째 줄에 도시의 개수 n이 주어지고 둘째 줄에는 버스의 개수 m이 주어진다. 그리고 셋째 줄부터 m+2줄까지 다음과 같은 버스의 정보가 주어진다. 먼저 처음에는 그 버스의 출발 도시의 번호가 주어진다. 버스의 정보는 버스의 시작 도시 a, 도착 도시 b, 한 번 타는데 필요한 비용 c로 이루어져 있다. 시작 도시와 도착 도시가 같은 경우는 없다. 비용은 100,000보다 작거나 같은 자연수이다.
 
- 그래프의 정점은 1번부터 V번까지 번호가 매겨져 있고, 임의의 두 정점 사이에 경로가 있다. 최소 스패닝 트리의 가중치가 -2,147,483,648보다 크거나 같고, 2,147,483,647보다 작거나 같은 데이터만 입력으로 주어진다.
+ 시작 도시와 도착 도시를 연결하는 노선은 하나가 아닐 수 있다.
 
 
  
  - 예제 입력 :
- 3 3
- 1 2 1
- 2 3 2
+ 5
+ 14
+ 1 2 2
  1 3 3
-
+ 1 4 1
+ 1 5 10
+ 2 4 2
+ 3 4 1
+ 3 5 1
+ 4 5 3
+ 3 5 10
+ 3 1 8
+ 1 4 2
+ 5 1 7
+ 3 4 2
+ 5 2 4
  
  - 출력
- 첫째 줄에 최소 스패닝 트리의 가중치를 출력한다.
+ n개의 줄을 출력해야 한다. i번째 줄에 출력하는 j번째 숫자는 도시 i에서 j로 가는데 필요한 최소 비용이다. 만약, i에서 j로 갈 수 없는 경우에는 그 자리에 0을 출력한다.
+
 
  
  - 예제 출력 :
- 3
-
+ 0 2 3 1 4
+ 12 0 15 2 5
+ 8 5 0 1 1
+ 10 7 13 0 3
+ 7 4 10 6 0
  
  */
 
 // MARK: 내 답
 /// 1. 아이디어
-/// - MST 기본문제, 외우기
-///     - 간선을 인접리스트에 집어넣기
-///     - 힙에 시작점 넣기
-///     - 힙이 빌때까지 아래 작업
-///         - 힙의 최소값 꺼내서, 해당 노드 방문 안했다면
-///             - 방문 표시, 해당 비용추가, 연결된 간선들을 힙에 새롭게 추가
+/// - 모든 노드쌍(A,B)에 대하여 도시 A에서 도시 B로 가는 최솟값구하기 :::: 플로이드
+///     - 한 점 -> 모든 점 ::: 다익스트라
+///     - 모든 점 -> 모든 점 ::: 플로이드
+/// - 플로이드
+///     - 거리 초기값은 무한대,  자기 자신으로 가는값 0
+///     - 노드 거쳐가는 경우에 비용이 작아지면 갱신
+/// - i번째 줄에 j번째 숫자는 도시 i에서 j로 가는 최소 비용
 ///
 /// 2. 시간복잡도
-///  - MST: O(ElgE)
-///
+/// - 다익스트라인경우 E(lgV) * V =
+///     - 1e^5 * 10 * 1e^ = 1e8 ::: 시간 초과 가능성있음
+/// - 플로이드 -> O(V^3) :::: 100^3 = 1,000,000
+///     - (1e2)^3 = 1e^6 ::: 가능
 ///
 /// 3. 자료구조
-///  - 간선 저장되는 인접리스트 : (무게, 노드 번호)
-///  - 힙 : (무게, 노드번호)
-///  - 방문여부 : [Bool]
-///  - MST 결과값 : Int
+/// - 도시 :: 노드 개수 ->  n: Int
+/// - 버스 :: 간선 개수 ->  m: Int
+/// - 엣지 정보 : 3째줄 부터 m +2 까지
+///     - a == b 같은 경우는 없음
+///     - 시작 도시 a : Int
+///     - 도착 도시 b : Int
+///     - 비용 c : Int
+///         - c <= 100000
+/// - 거리배열: result[Int][Int]
 
-let input = """
-3 3
-1 2 1
-2 3 2
-1 3 3
-"""
 
-//let lines = input.split(separator: "\n").map { String($0) }
-//let firstLine = lines[0].split(separator: " ").map { Int($0)! }
-let firstLine = readLine()!.split(separator: " ").map{ Int($0)!}
+// 입력 받기
+let n = Int(readLine()!)!
+let m = Int(readLine()!)!
 
-let (v, e) = (firstLine[0], firstLine[1])
+// 무한대를 나타내는 값
+let INF = Int.max
 
-// 인접 리스트 초기화
-//var edges = Array(repeating: [(Int, Int)](), count: v + 1)
-var edges = Array(repeating: [Edge](), count: v + 1)
+// 거리 행렬 초기화
+// n+1로 하는 경우는 하나 더 추가해서 인덱스를 편하게 사용하기 위함
+var rs = Array(repeating: Array(repeating: INF, count: n + 1), count: n + 1)
 
-for i in 1...e {
-//    let edgeData = lines[i].split(separator: " ").map { Int($0)! }
-    let edgeData = readLine()!.split(separator: " ").map { Int($0)! }
-    let (a, b, c) = (edgeData[0], edgeData[1], edgeData[2])
-    // 양방향(무방향) 그래프인 경우 a에서 b로, b에서 a로 두번 추가
-//    edges[a].append((c, b))
-//    edges[b].append((c, a))
-    
-    edges[a].append(Edge(cost: c, node: b))
-    edges[b].append(Edge(cost: c, node: a))
-
+// 자기 자신으로 가는 비용은 0으로 초기화
+for i in 1...n {
+    rs[i][i] = 0
 }
-// edges
-// [[], [(1, 2), (3, 3)], [(1, 1), (2, 3)], [(2, 2), (3, 1)]]
 
-//var heap = [(0,1)] // 노드 시작지점
-var heap = Heap<Edge>()
-heap.insert(Edge(cost: 0, node: 1))
+// 간선 정보 입력 받기
+for _ in 0..<m {
+    let edgeData = readLine()!.split(separator: " ").map { Int($0)! }
+    let a = edgeData[0]
+    let b = edgeData[1]
+    let c = edgeData[2]
+    rs[a][b] = min(rs[a][b], c) // a에서 b로 가는 최소 비용 갱신
+}
 
-// 방문 리스트 초기화
-var chk = Array(repeating: false, count: v + 1)
-
-var rs = 0 // 총 무게
-
-while !heap.isEmpty {
-//    heap.sort(by: <) // heap의 동작처럼 최소값 순으로 정렬 ->> 시간 초과...!!!
-//    let (w, eachNode) = heap.removeFirst() // heap을 pop
-    guard let edge = heap.extractMin() else { break }
-    let (w, eachNode) = (edge.cost, edge.node)
-
-//    if !chk[eachNode] {
-//        chk[eachNode] = true
-//        rs += w
-//        for nextEdge in edges[eachNode] {
-//            if !(chk[nextEdge.1]) {
-//                heap.insert(nextEdge)
-//
-////                heap.append(nextEdge)
-//            }
-//        }
-//    }
-    
-    if !chk[eachNode] {
-        chk[eachNode] = true
-        rs += w
-        for nextEdge in edges[eachNode] {
-            if !chk[nextEdge.node] {
-                heap.insert(nextEdge)
+// 플로이드-워셜 알고리즘 적용
+for k in 1...n {
+    for j in 1...n {
+        for i in 1...n {
+            
+            if rs[j][k] != INF && rs[k][i] != INF {
+                let sum = rs[j][k] + rs[k][i]
+                if rs[j][i] > sum {
+                    rs[j][i] = sum
+                }
             }
+
         }
     }
-
 }
 
-print(rs)
+// 결과 출력
+for j in 1...n {
+    for i in 1...n {
+
+        if rs[j][i] == INF {
+            print("0", terminator: " ")
+        } else {
+            print(rs[j][i], terminator: " ")
+        }
+    }
+    print()
+}
 
 
+// MARK: Insight
+/*
+ <#text#>
+ */
 
+
+// MARK: Other Idea
+/*
+ <#text#>
+ */
+
+
+// MARK: 다른 답 중 인상적인 답
