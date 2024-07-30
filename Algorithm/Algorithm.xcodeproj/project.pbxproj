@@ -15,6 +15,7 @@
 		9C4F47E02C50E4FA009AC95E /* Muz02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4F47DF2C50E4FA009AC95E /* Muz02.swift */; };
 		9C4F47E22C50ED4D009AC95E /* Muz03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4F47E12C50ED4D009AC95E /* Muz03.swift */; };
 		9C4F47E42C592F07009AC95E /* Prog_Last.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4F47E32C592F07009AC95E /* Prog_Last.swift */; };
+		9C4F47E72C5933AB009AC95E /* Prog_NumControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4F47E62C5933AB009AC95E /* Prog_NumControl.swift */; };
 		9CD62A352C099BF9008502BE /* BJ_1926_BFS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62A342C099BF9008502BE /* BJ_1926_BFS.swift */; };
 		9CD62A382C0C80AF008502BE /* BJ_2667.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62A372C0C80AF008502BE /* BJ_2667.swift */; };
 		9CD62A3A2C0CBBF6008502BE /* BJ_15649.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62A392C0CBBF6008502BE /* BJ_15649.swift */; };
@@ -64,6 +65,7 @@
 		9C4F47DF2C50E4FA009AC95E /* Muz02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muz02.swift; sourceTree = "<group>"; };
 		9C4F47E12C50ED4D009AC95E /* Muz03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muz03.swift; sourceTree = "<group>"; };
 		9C4F47E32C592F07009AC95E /* Prog_Last.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prog_Last.swift; sourceTree = "<group>"; };
+		9C4F47E62C5933AB009AC95E /* Prog_NumControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prog_NumControl.swift; sourceTree = "<group>"; };
 		9C54814F2BE09FD1009F1564 /* BJ_18108.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_18108.swift; sourceTree = "<group>"; };
 		9C5481512BE0A3C7009F1564 /* BJ_10430.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_10430.swift; sourceTree = "<group>"; };
 		9C5481522BE0A56D009F1564 /* BJ_2588.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_2588.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				9C4F47E32C592F07009AC95E /* Prog_Last.swift */,
+				9C4F47E62C5933AB009AC95E /* Prog_NumControl.swift */,
 			);
 			path = LV_1;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				9CD62A4E2C1076EA008502BE /* HeapTemplate.swift in Sources */,
 				9CD62A402C0F708F008502BE /* BJ_1920.swift in Sources */,
 				9CD62A3D2C0F58D9008502BE /* BJ_2559.swift in Sources */,
+				9C4F47E72C5933AB009AC95E /* Prog_NumControl.swift in Sources */,
 				9CD62A492C10589E008502BE /* Prim.swift in Sources */,
 				9CFAA40E2C07463600E24D25 /* BJ_14681.swift in Sources */,
 				9CD62A5D2C117D16008502BE /* Prog_42883.swift in Sources */,
