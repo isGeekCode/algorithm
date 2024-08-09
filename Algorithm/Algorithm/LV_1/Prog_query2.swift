@@ -43,9 +43,53 @@ import Foundation
 
 // MARK: 내 답
 /// 1. 아이디어
+/// - 2차원 배열인 queries 을 순회
+///  - 각 query에서 arr의 index를 가져오기
+///  - arr 배열을  s...k 범위에서 순회
+///   - 해당 값중 k보다 큰 수를 찾아서 임시배열 tempArr 에 저장
+///    - 임시 배열에 저장된 값 중, 최소값을 resultArr 배열에 저장
+///   - k보다 큰 수가 없다면 -1을 임시배열 tempArr 에 저장
+/// - 저장된 result배열 리턴
 /// 2. 시간복잡도
 /// 3. 자료구조
-
+/// - arr : 비교대상 배열
+/// - queries : 비교범위가 담긴 2차원 배열
+///  - s, e : arr 배열의 i 값의 범위
+///  - k : 범위 중 크기를 비교할 값
+/// - tempArr : k보다 큰 값을 저장할 배열
+/// - resultArr : 결과로 리턴할 배열
+///
+///
+//func solution(_ arr:[Int], _ queries:[[Int]]) -> [Int] {
+//    var (tempArr, resultArr) = ([Int](), [Int]())
+//    var (s,e,k) = (0,0,0)
+//    for queue in queries {
+//        s = queue[0]
+//        e = queue[1]
+//        k = queue[2]
+//        for j in s...e {
+//            tempArr.append(arr[j])
+//        }
+//        var resultTempArr = [Int]()
+//        for element in tempArr {
+//            if arr[element] > k {
+//                resultTempArr.append(element)
+//            }
+//        }
+//        let value = resultTempArr.count == 0 ? -1 : resultTempArr.min()!
+//
+//        resultArr.append(value)
+//        
+//        tempArr = []
+//    }
+//    
+//    return resultArr
+//}
+//
+//let arr =  [0, 1, 2, 4, 3]
+//let queries =  [[0, 4, 2],[0, 3, 2],[0, 2, 2]]
+//
+//print(solution(arr, queries))
 
 // MARK: Insight
 /*
@@ -54,8 +98,29 @@ import Foundation
 
 
 // MARK: Other Idea
+
+
 /*
- <#text#>
+
+ func solution(_ arr:[Int], _ queries:[[Int]]) -> [Int] {
+     var resultArr = [Int]()
+
+     for query in queries {
+         let s = query[0]
+         let e = query[1]
+         let k = query[2]
+         
+         let subArr = arr[s...e]
+         let filteredResultList = subArr.filter { $0 > k }
+         let minValue = filteredResultList.min() ?? -1
+         resultArr.append(minValue)
+     }
+     return resultArr
+ }
+
+ - 다른 배열의 수를 가져와서 arr 배열의 배열을 가져오는 방법
+ - 고차함수를 이용해서 필터링하는 방법
+ - 최소값을 구하고 해당 값을 Nil coalescing 을 이용해 nil여부체크 후, 기본값을 넣는 것이 가능하다.
  */
 
 
