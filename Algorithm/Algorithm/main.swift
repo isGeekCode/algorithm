@@ -8,24 +8,28 @@
 import Foundation
 
 
-
-func solution(_ strArr:[String]) -> [String] {
-    var arr = strArr
-
-    for i in 0 ... strArr.count - 1 {
-
-        arr[i] = i % 2 == 0 ? strArr[i].lowercased() : strArr[i].uppercased()
+func solution(_ numbers:[Int], _ n:Int) -> Int {
+    var answer = 0
+    for num in numbers {
+        answer += num
+        if answer > n {
+            break
+        }
     }
-//    let resultArr = strArr.enumerated().map { (index, element) in
-//        index % 2 == 0 ? element.lowercased() : element.uppercased()
-//    }
-    
-    return arr
+    return answer
 }
 
-let input = ["AAA","BBB","CCC","DDD"]
-let alp = "p"
 
-let input2 = ["aBc","AbC"]
-let alp2 = "x"
-print(solution(input))
+func solution(_ numbers:[Int], _ n:Int) -> Int {
+    var answer = 0
+    numbers.forEach { $0 + $1 }
+}
+
+
+let input = [34, 5, 71, 29, 100, 34] //139
+let n = 123
+let input2 = [58, 44, 27, 10, 100] //239
+let n2 = 139
+        
+        
+print(solution(input2, n2))
