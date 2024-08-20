@@ -1,3 +1,10 @@
+//
+//  Collatz.swift
+//  Algorithm
+//
+//  Created by 방현석 on 8/20/24.
+//
+
 import Foundation
 
 /*
@@ -24,64 +31,22 @@ import Foundation
 
 
 
-
-func solution(_ n:Int) -> [Int] {
-    var current = n
-    var answers = [current]
-    
-    while current != 1 {
-        if current % 2 != 0 { // odd
-            print("odd")
-            current = (current * 3) + 1
-        } else if current % 2 == 0 { // even
-            print("!odd")
-            current = current / 2
-        }
-        answers.append(current)
-    }
-    return answers
-}
-
-print(solution(10))
-
-// MARK: <#제목#>
-
-
-/**
- 
- - 문제
- <#문제 설명#>
- 
- - 입력
- <#입력 설명#>
- 
- - 예제 입력 :
- <#abc...#>
- 
- - 출력
- <#출력 설명#>
- 
- - 예제 출력 :
- <#abc...#>
- 
- */
-
-// MARK: 내 답
-/// 1. 아이디어
-/// 2. 시간복잡도
-/// 3. 자료구조
-
-
-// MARK: Insight
-/*
- <#text#>
- */
-
-
-// MARK: Other Idea
-/*
- <#text#>
- */
-
-
-// MARK: 다른 답 중 인상적인 답
+//
+//func solution(_ n:Int) -> [Int] {
+//    var current = n
+//    var answers = [current]
+//    
+//    while current != 1 {
+//        if current % 2 != 0 { // odd
+//            print("odd")
+//            current = (current * 3) + 1
+//        } else if current % 2 == 0 { // even
+//            print("!odd")
+//            current = current / 2
+//        }
+//        answers.append(current)
+//    }
+//    return answers
+//}
+//
+//print(solution(10))

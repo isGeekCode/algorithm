@@ -12,6 +12,7 @@
 		96FEC2AD289B327100580B06 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FEC2A4289B310800580B06 /* Tutorial.swift */; };
 		9C0BD2E52C621C2500DEAE58 /* Prog_query2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0BD2E42C621C2500DEAE58 /* Prog_query2.swift */; };
 		9C0BD2E72C6B2ADE00DEAE58 /* Prog_query4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0BD2E62C6B2ADE00DEAE58 /* Prog_query4.swift */; };
+		9C2AE0002C7463F2006A6964 /* Collatz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2ADFFF2C7463F2006A6964 /* Collatz.swift */; };
 		9C4F47D92C4FD097009AC95E /* Tvn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4F47D82C4FD097009AC95E /* Tvn.swift */; };
 		9C4F47DE2C50E4E5009AC95E /* Muz01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4F47DD2C50E4E4009AC95E /* Muz01.swift */; };
 		9C4F47E02C50E4FA009AC95E /* Muz02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4F47DF2C50E4FA009AC95E /* Muz02.swift */; };
@@ -65,6 +66,7 @@
 		96FEC2A4289B310800580B06 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		9C0BD2E42C621C2500DEAE58 /* Prog_query2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prog_query2.swift; sourceTree = "<group>"; };
 		9C0BD2E62C6B2ADE00DEAE58 /* Prog_query4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prog_query4.swift; sourceTree = "<group>"; };
+		9C2ADFFF2C7463F2006A6964 /* Collatz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collatz.swift; sourceTree = "<group>"; };
 		9C4F47D82C4FD097009AC95E /* Tvn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tvn.swift; sourceTree = "<group>"; };
 		9C4F47DD2C50E4E4009AC95E /* Muz01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muz01.swift; sourceTree = "<group>"; };
 		9C4F47DF2C50E4FA009AC95E /* Muz02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muz02.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				96FEC2A4289B310800580B06 /* Tutorial.swift */,
 				962296452908D131009DE671 /* ArrayInit.swift */,
+				9C2AE0012C7463FE006A6964 /* Popular_Sequence */,
 				9C4F47E52C592F10009AC95E /* LV_1 */,
 				962296492908ED3C009DE671 /* BJ_LV1_입출력과 사칙연산 */,
 				9C5481592BE0BABC009F1564 /* BJ_LV2_조건문 */,
@@ -167,6 +170,14 @@
 				9CD62A572C1164EF008502BE /* Floyd */,
 			);
 			path = Algorithm;
+			sourceTree = "<group>";
+		};
+		9C2AE0012C7463FE006A6964 /* Popular_Sequence */ = {
+			isa = PBXGroup;
+			children = (
+				9C2ADFFF2C7463F2006A6964 /* Collatz.swift */,
+			);
+			path = Popular_Sequence;
 			sourceTree = "<group>";
 		};
 		9C4F47DA2C4FD0BE009AC95E /* Tving */ = {
@@ -367,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C4F47DE2C50E4E5009AC95E /* Muz01.swift in Sources */,
+				9C2AE0002C7463F2006A6964 /* Collatz.swift in Sources */,
 				9CD62A382C0C80AF008502BE /* BJ_2667.swift in Sources */,
 				9CFAA40C2C07426100E24D25 /* BJ_2753.swift in Sources */,
 				9CD62A352C099BF9008502BE /* BJ_1926_BFS.swift in Sources */,
