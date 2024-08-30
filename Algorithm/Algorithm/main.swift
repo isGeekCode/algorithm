@@ -1,27 +1,35 @@
 import Foundation
 
 /*
- 정수 n과 k가 주어졌을 때, 1 이상 n이하의 정수 중에서 k의 배수를 오름차순으로 저장한 배열을 return 하는 solution 함수를 완성해 주세요.
+ boolean 변수 x1, x2, x3, x4가 매개변수로 주어질 때, 다음의 식의 true/false를 return 하는 solution 함수를 작성해 주세요.
 
- my_string    n    result
- "ProgrammerS123"    11    "ProgrammerS"
- "He110W0r1d"    5    "He110"
+ (x1 ∨ x2) ∧ (x3 ∨ x4)
+
+ ∨ :: OR
+ ∨∧ :: AND
+
+ 
+ x1    x2    x3    x4          result
+ false    true    true    true    true
+ true    false    false    false    false
  */
 
 
 
 
 
-func solution(_ my_string:String, _ n:Int) -> String {
+
+func solution(_ x1:Bool, _ x2:Bool, _ x3:Bool, _ x4:Bool) -> Bool {
     
-    return String(my_string.prefix(n))
+    let a = x1 || x2
+    let b = x3 || x4
+    
+    return a && b
 }
-let input = [1, 4, 2, 5, 3]
 
-let my_string = "ProgrammerS123"
-let n = 11
 
-print(solution(my_string, n))
+print(solution(false, true, true, true))
+//print(solution(true, false, false, false))
 
 // MARK: <#제목#>
 
