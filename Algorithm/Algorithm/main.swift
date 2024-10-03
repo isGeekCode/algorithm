@@ -1,82 +1,83 @@
 //
-//  BJ_2720.swift
+//  BJ_1026.swift
 //  Algorithm
 //
-//  Created by 방현석 on 10/3/24.
+//  Created by 방현석 on 10/4/24.
 //
 
 import Foundation
 
-// MARK: 세탁소 사장 동혁
+// MARK: 보물
+
 
 /**
  
  - 문제
- 미국으로 유학간 동혁이는 세탁소를 운영하고 있다. 동혁이는 최근에 아르바이트로 고등학생 리암을 채용했다.
+ 옛날 옛적에 수학이 항상 큰 골칫거리였던 나라가 있었다. 이 나라의 국왕 김지민은 다음과 같은 문제를 내고 큰 상금을 걸었다.
 
- 동혁이는 리암에게 실망했다.
+ 길이가 N인 정수 배열 A와 B가 있다. 다음과 같이 함수 S를 정의하자.
 
- 리암은 거스름돈을 주는 것을 자꾸 실수한다.
+ S = A[0] × B[0] + ... + A[N-1] × B[N-1]
 
- 심지어 $0.5달러를 줘야하는 경우에 거스름돈으로 $5달러를 주는것이다!
+ S의 값을 가장 작게 만들기 위해 A의 수를 재배열하자. 단, B에 있는 수는 재배열하면 안 된다.
 
- 어쩔수 없이 뛰어난 코딩 실력을 발휘해 리암을 도와주는 프로그램을 작성하려고 하지만, 디아블로를 하느라 코딩할 시간이 없어서 이 문제를 읽고 있는 여러분이 대신 해주어야 한다.
-
- 거스름돈의 액수가 주어지면 리암이 줘야할 쿼터(Quarter, $0.25)의 개수, 다임(Dime, $0.10)의 개수, 니켈(Nickel, $0.05)의 개수, 페니(Penny, $0.01)의 개수를 구하는 프로그램을 작성하시오. 거스름돈은 항상 $5.00 이하이고, 손님이 받는 동전의 개수를 최소로 하려고 한다. 예를 들어, $1.24를 거슬러 주어야 한다면, 손님은 4쿼터, 2다임, 0니켈, 4페니를 받게 된다.
+ S의 최솟값을 출력하는 프로그램을 작성하시오.
 
 
  
  - 입력
- 첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 거스름돈 C를 나타내는 정수 하나로 이루어져 있다. C의 단위는 센트이다. (1달러 = 100센트) (1<=C<=500)
-
-
+ 첫째 줄에 N이 주어진다. 둘째 줄에는 A에 있는 N개의 수가 순서대로 주어지고, 셋째 줄에는 B에 있는 수가 순서대로 주어진다. N은 50보다 작거나 같은 자연수이고, A와 B의 각 원소는 100보다 작거나 같은 음이 아닌 정수이다.
  
  - 출력
- 각 테스트케이스에 대해 필요한 쿼터의 개수, 다임의 개수, 니켈의 개수, 페니의 개수를 공백으로 구분하여 출력한다.
+ 첫째 줄에 S의 최솟값을 출력한다.
 
 
  
  - 예제1
  - 예제 입력 :
- 3
- 124
- 25
- 194
+ 5
+ 1 1 1 6 0
+ 2 7 8 3 1
  - 예제 출력 :
- 4 2 0 4
- 1 0 0 0
- 7 1 1 4
+ 18
+ 
+ - 예제2
+ - 예제 입력 :
+ 3
+ 1 1 3
+ 10 30 20
+ - 예제 출력 :
+ 80
+ 
+ - 예제3
+ - 예제 입력 :
+ 9
+ 5 15 100 31 39 0 0 3 26
+ 11 12 13 2 3 4 5 9 1
+ - 예제 출력 :
+ 528
  
  */
 
 // MARK: 내 답
 /// 1. 아이디어
-/// - 입력 : t만큼 readline을 받아서 for문 실행
-///     - 거스름돈을 받아서 동전배열의 원소를 순회하며 나눗셈
+/// - B배열은 바꾸지 말라고 했는데 상과없지않나??
+/// - B배열을 살펴보고 가장 작은 값의 위치에 A배열의 가장 큰수를 매칭
 /// 2. 시간복잡도
 /// 3. 자료구조
-/// - answerArr: [[Int]] 테스트케이스 갯수만큼의 동전 갯수 배열
-/// - coinArr: [Int] = [25, 10, 5, 1]
 
-let coinArr = [25, 10, 5, 1]
-var answerArr = [String]()
-let testCase = Int(String(readLine()!))!
 
-for _ in 0 ..< testCase {
-    var change = Int(String(readLine()!))!
-    var answer = [Int]()
-    for coinIndex in 0 ... coinArr.count - 1 {
-        let coin = coinArr[coinIndex]
-        answer.append(change / coin)
-        change %= coin
-    }
-    let answerStrArr = answer.map { String($0) }.joined(separator: " ")
-    answerArr.append(answerStrArr)
+let index = Int(String(readLine()!))!
+var aArr = readLine()!.split(separator: " ").map{ Int(String($0))!}
+var bArr = readLine()!.split(separator: " ").map{ Int(String($0))!}
+aArr.sort(by: <)
+bArr.sort(by: >)
+
+var sum = 0
+for i in 0 ..< index {
+    sum += aArr[i] * bArr[i]
 }
-
-for str in answerArr {
-    print(str)
-}
+print(sum)
 
 // MARK: Insight
 /*
