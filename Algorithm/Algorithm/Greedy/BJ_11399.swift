@@ -1,6 +1,12 @@
+//
+//  BJ_11399.swift
+//  Algorithm
+//
+//  Created by 방현석 on 10/3/24.
+//
+
 import Foundation
 
-// BJ11399
 // MARK: ATM
 
 
