@@ -1,15 +1,15 @@
 import Foundation
 
-////
-////  BJ_1926_BFS.swift
-////  Algorithm
-////
-////  Created by 방현석 on 5/31/24.
-////
+//
+//  BJ_1926_BFS.swift
+//  Algorithm
+//
+//  Created by 방현석 on 5/31/24.
+//
 //
 //import Foundation
 //
-//// MARK: 그림
+// MARK: 그림
 //
 //
 ///**
@@ -43,95 +43,157 @@ import Foundation
 //
 // */
 //
-//// MARK: 내 답
-//let firstLine = readLine()!.split(separator: " ").map { Int($0)! }
-//let (n, m) = (firstLine[0], firstLine[1])
+// MARK: 내 답
+
+//let input = """
+//6 5
+//1 1 0 1 1
+//0 1 1 0 0
+//0 0 0 0 0
+//1 0 1 1 1
+//0 0 1 1 1
+//0 0 1 1 1
+//"""
 //
-//var grid = [[Int]]()  // 2차원 배열로 도화지의 정보를 저장
-//for _ in 0..<n {
-//    let row = readLine()!.split(separator: " ").map { Int($0)! }
+//var lines = input.split(separator: "\n")
+//let size = lines.removeFirst().split(separator: " ").map { Int($0)! } // 첫줄
+//let (n, m) = (size[0], size[1])
+//var grid = [[Int]]()
+//grid.reserveCapacity(n)
+//for i in 0..<n {
+//    let row = lines[i].split(separator: " ").map { Int($0)! }
 //    grid.append(row)
 //}
 //
-//let (n, m) = (6, 5)
-//var grid = [
-//    [1,1,0,1,1],
-//    [0,1,1,0,0],
-//    [0,0,0,0,0],
-//    [1,0,1,1,1],
-//    [0,0,1,1,1],
-//    [0,0,1,1,1],
-//]
-//
 //var visited = Array(repeating: Array(repeating: false, count: m), count: n)
-//var numPictures = 0 // 그림의 개수
-//var maxArea = 0     // 최대 그림의 넓이
-//var area = 0
 //
-//for j in 0..<n { // row y축
-//    for i in 0..<m { // column x축
-//        if canVisit(j, i) {
-//            // 1이면 처리하는 부분
-//            let area = bfs(j, i) // 그림 하나당 한번 호출함
-//            numPictures += 1
-//            maxArea = max(maxArea, area) // 저장되어있던 maxArea와 area를 비교하여 갱신
+//func canVisit(_ sX: Int, _ sY: Int) -> Bool {
+//    return grid[sX][sY] == 1 && !visited[sX][sY]
+//}
+//
+//func bfs(_ sX: Int, _ sY: Int) -> Int {
+//    visited[sX][sY] = true
+//    var head = 0
+//    var area = 1
+//    var q = [(sX, sY)]
+//    let dx = [0,0,1,-1]
+//    let dy = [1,-1,0,0]
+//
+//    while head < q.count {
+//        let (r,c) = q[head]
+//        head += 1
+//
+//        if head > 4096 {
+//            q.removeFirst(head)
+//            head = 0
 //        }
-//    }
-//}
 //
-//print(numPictures)
-//print(maxArea)
+//        for i in 0..<4 {
+//            let nr = r + dx[i]
+//            let nc = c + dy[i]
 //
-//
-//func canVisit(_ y: Int, _ x: Int) -> Bool {
-//    return grid[y][x] == 1 && !visited[y][x]
-//}
-//
-//func bfs(_ y: Int, _ x: Int) -> Int {
-//
-//    var queue: [(Int, Int)] = [(y, x)] // 시작위치가 큐에 세팅
-//    
-//    let dy = [1, -1, 0, 0]
-//    let dx = [0, 0, 1, -1]
-//
-//    visited[y][x] = true // 방문처리
-//    area = 1 // 최초 좌표의 너비를 더함
-//
-//    while !queue.isEmpty {
-//
-//        let current = queue.removeFirst()  // Dequeue 큐에서 현재 위치 추출
-//        for i in 0...3 {
-//            
-//            
-//            let y = current.0
-//            let x = current.1
-//            
-//            let ny = y + dy[i]
-//            let nx = x + dx[i]
-//            
-//            if (nx >= 0 && nx < m) && (ny >= 0 && ny < n) { // 범위 이탈 체크
-//                if canVisit(ny, nx) { // 현재 체크하는 상하좌우에 1이 있는지, 방문을 안했는지
-//                    visited[ny][nx] = true // 방문체크
-//                    queue.append((ny, nx)) // Enqueue 발견된 현재 위치를 큐에 추가 ( 큐의 순서대로 이접 4방향 체크 )
-//                    area += 1 // 방문X && 인접한 1을 발견할 때마다 1추가
-//                }
+//            if 0 <= nr, nr < n,
+//               0 <= nc, nc < m,
+//               canVisit(nr, nc) {
+//                q.append((nr,nc))
+//                visited[nr][nc] = true
+//                area += 1
 //            }
 //        }
 //    }
 //    return area
 //}
+//
+//func dfs(_ sr: Int, _ sc: Int) -> Int {
+//    visited[sr][sc] = true
+//    var area = 1
+//
+//    let dr = [0,0,1,-1]
+//    let dc = [1,-1,0,0]
+//
+//    for i in 0..<4 {
+//        let nr = sr + dr[i]
+//        let nc = sc + dc[i]
+//
+//        if 0 <= nr, nr < n,
+//           0 <= nc, nc < m,
+//           canVisit(nr, nc) {
+//            area += dfs(nr, nc)
+//        }
+//    }
+//    return area
+//}
+//
+//
+//func dfsWithStack(_ sr: Int, _ sc: Int) -> Int {
+//    var s = [(sr,sc)]
+//    var area = 0
+//    visited[sr][sc] = true
+//
+//    let dr = [0,0,1,-1]
+//    let dc = [1,-1,0,0]
+//
+//    while !s.isEmpty {
+//        let (r,c) = s.removeLast()
+//        area += 1
+//
+//        for i in 0..<4 {
+//            let nr = r + dr[i]
+//            let nc = c + dc[i]
+//
+//            if 0 <= nr, nr < n,
+//               0 <= nc, nc < m,
+//               canVisit(nr, nc) {
+//                visited[nr][nc] = true
+//                s.append((nr,nc))
+//            }
+//
+//        }
+//    }
+//    return area
+//}
+//
+//var count = 0
+//var maxArea = 0
+//
+//for i in 0..<n {
+//    for j in 0..<m {
+//        if canVisit(i, j) {
+//            //            maxArea = max(maxArea,bfs(i, j))
+//            //            maxArea = max(maxArea,dfs(i, j))
+//            maxArea = max(maxArea, dfsWithStack(i, j))
+//            count += 1
+//        }
+//    }
+//}
+//
+//print(count)
+//print(maxArea)
 
+// MARK: Insight
+///*
+/// [ 내 풀이하면서 깨달은 것 ]
+/// - 2차원 배열은 무조건 grid[row][col]로 고정: row = n(세로), col = m(가로)
+/// - visited도 동일한 구조 [n][m]로 만들고 visited[row][col]로 접근하면 인덱스 실수가 줄어든다.
+/// - 연결요소 문제의 핵심은 "방문 처리 타이밍": 큐/스택에 넣는 순간(enqueue/push)에 visited = true를 찍어야 중복 삽입이 없다.
+/// - BFS 큐를 배열로 구현할 때 removeFirst()는 느릴 수 있어 head 인덱스를 쓰는 패턴이 실전적이다.
+/// - 재귀 DFS는 최악(500x500 전체 1)에서 깊이가 nm까지 커질 수 있어 Swift에서 EXC_BAD_ACCESS(스택 오버플로) 위험이 있다.
+/// - 시간복잡도는 각 칸을 최대 1번 방문하고 방문 시 4방향만 확인하므로 O(n*m) (그래프 관점 O(V+E)).
+/// */
 
-//// MARK: Insight
+// MARK: Other Idea
 ///*
-// <#text#>
-// */
-//
-//
-//// MARK: Other Idea
-///*
-// <#text#>
-// */
-//
-//
+/// [다른 접근/개선 아이디어]
+/// - visited를 없애고 방문한 칸을 grid[r][c] = 0으로 바꾸는 방식도 가능(메모리 절약 + 조건 단순화).
+/// - DFS를 쓰고 싶다면 재귀 대신 반복 DFS(스택)로 구현하면 스택 오버플로를 피할 수 있다.
+/// - 범위 체크는 호출부에서 하고 canVisit은 값/방문만 담당하게 분리하면(=inBounds + canVisit) 안전하고 가독성이 좋아진다.
+/// - 큐가 아주 커질 수 있는 문제에서는 head가 커질 때 q.removeFirst(head)로 주기적으로 앞부분을 정리하거나, Deque(링버퍼)를 직접 구현하는 방법도 있다.
+/// */
+
 //// MARK: 다른 답 중 인상적인 답
+///*
+/// [다른 사람 풀이 보면서 인상 깊었던 포인트]
+/// - 입력이 큰 문제에서 FastScanner(바이트 단위 파싱)로 split/readLine 병목을 확 줄이는 구현.
+/// - visited 배열 없이 grid 자체를 0으로 바꾸며 방문 처리하는 깔끔한 풀이(메모리/코드 둘 다 단순).
+/// - Deque를 직접 구현해서 BFS를 O(1) pop/push로 안정적으로 처리하는 방식.
+/// */
