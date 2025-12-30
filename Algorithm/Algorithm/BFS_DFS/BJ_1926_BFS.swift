@@ -55,21 +55,89 @@ import Foundation
 //0 0 1 1 1
 //"""
 //
-//var lines = input.split(separator: "\n")
-//let size = lines.removeFirst().split(separator: " ").map { Int($0)! } // 첫줄
-//let (n, m) = (size[0], size[1])
-//var grid = [[Int]]()
-//grid.reserveCapacity(n)
-//for i in 0..<n {
-//    let row = lines[i].split(separator: " ").map { Int($0)! }
-//    grid.append(row)
-//}
 //
+//var lines = input.split(separator: "\n")
+//let (n,m) = {
+//    let a = lines.removeFirst().split(separator: " ").map { Int($0)! }
+//    return (a[0],a[1])
+//}()
+//var grid = Array(repeating: Array(repeating: 0, count: m), count: n)
 //var visited = Array(repeating: Array(repeating: false, count: m), count: n)
 //
-//func canVisit(_ sX: Int, _ sY: Int) -> Bool {
-//    return grid[sX][sY] == 1 && !visited[sX][sY]
+//for i in 0..<n {
+//    let row = lines[i].split(separator: " ").map { Int($0)! }
+//    grid[i] = row
 //}
+//
+//func canVisit(_ r: Int, _ c: Int) -> Bool {
+//    return grid[r][c] == 1 && !visited[r][c]
+//}
+//
+//func bfs(_ r: Int, _ c: Int) -> Int {
+//    visited[r][c] = true
+//    var area = 1
+//    var q = [(r,c)]
+//    var head = 0
+//    
+//    while head < q.count {
+//        let (r,c) = q[head]
+//        head += 1
+//        
+//        for i in 0..<4 {
+//            let dr = [0,0,1,-1]
+//            let dc = [1,-1,0,0]
+//            
+//            let nr = r + dr[i]
+//            let nc = c + dc[i]
+//            
+//            if 0 <= nr, nr < n,
+//               0 <= nc, nc < m,
+//               canVisit(nr, nc) {
+//                visited[nr][nc] = true
+//                area += 1
+//                q.append((nr, nc))
+//            }
+//        }
+//    }
+//    return area
+//}
+//
+//func dfs(_ r: Int, _ c: Int) -> Int {
+//    visited[r][c] = true
+//    var area = 1
+//    
+//    let dr = [0,0,1,-1]
+//    let dc = [1,-1,0,0]
+//    
+//    for i in 0..<4 {
+//        let nr = r + dr[i]
+//        let nc = c + dc[i]
+//        
+//        if 0 <= nr, nr < n,
+//           0 <= nc, nc < m,
+//           canVisit(nr, nc) {
+//            visited[nr][nc] = true
+//            area += dfs(nr, nc)
+//        }
+//    }
+//    return area
+//}
+//
+//var count = 0
+//var maxArea = 0
+//
+//for i in 0..<n {
+//    for j in 0..<m{
+//        if canVisit(i, j) {
+//            count += 1
+//            maxArea = max(maxArea, dfs(i, j))
+//        }
+//    }
+//}
+//
+//print(count)
+//print(maxArea)
+
 //
 //func bfs(_ sX: Int, _ sY: Int) -> Int {
 //    visited[sX][sY] = true
@@ -123,7 +191,7 @@ import Foundation
 //    }
 //    return area
 //}
-//
+
 //
 //func dfsWithStack(_ sr: Int, _ sc: Int) -> Int {
 //    var s = [(sr,sc)]
